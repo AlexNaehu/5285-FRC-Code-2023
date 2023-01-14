@@ -2,11 +2,11 @@ package frc.Autonomous;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.CatzConstants;
+import frc.robot.BananaConstants;
 import frc.robot.Robot;
-import frc.Mechanisms.CatzDriveTrain;
+import frc.Mechanisms.BananaDriveTrain;
 
-public class CatzDriveStraight 
+public class BananaDriveStraight 
 {
 
 	/****************************************************************************
