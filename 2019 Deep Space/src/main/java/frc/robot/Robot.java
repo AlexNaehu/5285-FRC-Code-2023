@@ -1,5 +1,6 @@
 package frc.robot;
 
+//Utilizes all mechanisms for the robot and runs their programs to perform each function
 
 import frc.Autonomous.BananaDriveStraight;
 import frc.Autonomous.BananaTurn;
@@ -7,7 +8,7 @@ import frc.Autonomous.BananaTurn;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.Mechanisms.BananaArm;
-import frc.Mechanisms.BananaDriveBase;
+import frc.Mechanisms.BananaDriveTrain;
 import frc.Mechanisms.BananaIntake;
 import frc.Mechanisms.BananaLift;
 
@@ -21,7 +22,7 @@ import frc.Mechanisms.BananaLift;
 public class Robot extends TimedRobot 
 {
   public static BananaArm         arm;
-  public static BananaDriveBase  driveBase;
+  public static BananaDriveTrain  driveTrain;
   public static BananaIntake      intake;
   public static BananaLift        lift;
 
@@ -41,7 +42,7 @@ public class Robot extends TimedRobot
     *  Initialize Mechanisms & Drive Controllers
     *-------------------------------------------------------------------------*/
     arm        = new BananaArm();
-    driveTrain = new BananaDriveBase();
+    driveTrain = new BananaDriveTrain();
     intake     = new BananaIntake();
     lift       = new BananaLift();
   
