@@ -20,13 +20,13 @@ import edu.wpi.first.wpilibj.Timer;
 public class CatzPreSets
 {
     //Values for ball and hatch pickup
-    private static double NEUTRAL_PIVOT_ANGLE = 0.0;// 0.0 angle is at straight verticle down
+    private static double NEUTRAL_PIVOT_ANGLE = 0.0;// 0.0 angle is at straight verticle down, have a button for manual to return the arm to verticle, have auton
+                                                    // lower the arm to 0.0 before it drives to the charging station
     
  
 
     //private static double HATCH_PICKUP_PIVOT_ANGLE = 0.0;
-    private static double PICKUP_PIVOT_ANGLE = 5.0;//slightly higher than the neutral angle to make sure the object is right 
-                                                    //side up when raised to the correct elevation
+    private static double PICKUP_PIVOT_ANGLE = 5.0;//slightly higher than the neutral angle, trial and error to find a comfortable angle to grab the cone
     
 
 
@@ -41,7 +41,7 @@ public class CatzPreSets
     
 
     //Values for scoring in the cargo bay
-    private static double CARGO_BAY_BALL_PIVOT_ANGLE = 110.0; //the surface of the shelf is 95cm above the carpet
+    private static double HATCH_PICKUP_PIVOT_ANGLE = 73.539; //Correct
    
 
    
@@ -52,13 +52,13 @@ public class CatzPreSets
      *  Values for scoring cargo in rocket
      * 
      */
-    private static double LVL_3_BALL_PIVOT_ANGLE = 90.0;
+    private static double LVL_3_BALL_PIVOT_ANGLE = 90.0; //Top step in the scoring grids
     
 
-    private static double LVL_2_BALL_PIVOT_ANGLE = 80.0;
+    private static double LVL_2_BALL_PIVOT_ANGLE = 80.0; //Middle step in the scoring grids
    
 
-    private static double LVL_1_BALL_PIVOT_ANGLE = 10.0; //doubles as the travel angle
+    private static double LVL_1_BALL_PIVOT_ANGLE = 10.0; //Doubles as the travel angle
 
 
 
@@ -67,6 +67,8 @@ public class CatzPreSets
      *  Values for scoring hatches in rocket
      * 
      */
+    
+    /*
     private static double LVL_3_HATCH_PIVOT_ANGLE = 104.0;
    
 
@@ -74,14 +76,15 @@ public class CatzPreSets
   
 
     private static double LVL_1_HATCH_PIVOT_ANGLE = 21.0;
+    
+    */
 
 
 
     /** 
      *  Values for scoring in the cargo bay on the back side of the robot
     */
-    private static double CARGO_BAY_REV_BALL_PIVOT_ANGLE = 155.0;//change ball to cube, and add a scoring angle 
-                                                                //might be different if you have to lift the arm higher for the peg
+   
     
     public static void setPosition(double pivotTargetAngle)
     {
@@ -101,7 +104,7 @@ public class CatzPreSets
         
         Timer.delay(0.3);
 
-        Robot.arm.setPivotTargetAngle(NEUTRAL_PIVOT_ANGLE);
+        Robot.arm.setPivotTargetAngle(PICKUP_PIVOT_ANGLE);
         Robot.arm.setArmTargetHit(false);
         //Timer.delay(0.2);
 
@@ -125,11 +128,13 @@ public class CatzPreSets
      *  Positions for Scoring in Cargo Bay
      * 
      */
+    
+    /*
     public static void cargoBayBall()
     {
         /*Robot.arm.setArmTargetHit(false);
-        Robot.arm.setArmTargetExt(CARGO_BAY_BALL_ARM_EXT);
-        Timer.delay(0.0200);*/
+        //Robot.arm.setArmTargetExt(CARGO_BAY_BALL_ARM_EXT);
+        //Timer.delay(0.0200);
 
         Robot.arm.setPivotTargetAngle(CARGO_BAY_BALL_PIVOT_ANGLE);
         Timer.delay(0.0100);
@@ -137,6 +142,8 @@ public class CatzPreSets
         
     }
 
+*/
+    
     public static void cargoBayHatch()
     {
         //Hatch spot is close to hatch pickup so use the same values
@@ -187,7 +194,7 @@ public class CatzPreSets
      *  Positions for Hatch in Rocket
      * 
      */
-
+/*
     public static void lvl3RocketHatch()
     {
         Robot.arm.setPivotTargetAngle(LVL_3_HATCH_PIVOT_ANGLE);
@@ -216,23 +223,21 @@ public class CatzPreSets
         
     }
 
-    
+    */
  
     //also for scoring in rocket lvl 1
+    /*
     public static void transport()
     {
         Robot.arm.setArmTargetHit(false);
-        Robot.arm.setArmTargetExt(Robot.arm.getArmTargetExt() - 1);
         
         Robot.arm.setPivotTargetAngle(TRAVEL_PIVOT_ANGLE);
 
         Robot.arm.setArmTargetHit(false);
-        Robot.arm.setArmTargetExt(TRAVEL_ARM_EXT);
-
-        Timer.delay(0.15);
-        Robot.intake.setWristTargetAngle(TRAVEL_WRIST_ANGLE);
+       
     }
-
+*/
+    /*
     public static void cargoBayReversed() //scored behind
     {
         Robot.arm.setPivotTargetAngle(CARGO_BAY_REV_BALL_PIVOT_ANGLE);
@@ -242,5 +247,5 @@ public class CatzPreSets
 
         Robot.intake.setWristTargetAngle(CARGO_BAY_REV_BALL_WRIST_ANGLE);
     }
-
+*/
 }
