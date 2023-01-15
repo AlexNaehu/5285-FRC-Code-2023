@@ -39,10 +39,10 @@ public class CatzPreSets
     
 
     //Values for scoring in the cargo bay
-    private static double CARGO_BAY_BALL_PIVOT_ANGLE = 110.0;
+    private static double CARGO_BAY_BALL_PIVOT_ANGLE = 110.0; 
    
 
-    private static double CARGO_BAY_HATCH_PIVOT_ANGLE = 21.0;
+    private static double CARGO_BAY_HATCH_PIVOT_ANGLE = 21.0; //the surface of the shelf is 95cm above the carpet
    
 
     
@@ -57,7 +57,7 @@ public class CatzPreSets
     private static double LVL_2_BALL_PIVOT_ANGLE = 101.4;
    
 
-    private static double LVL_1_BALL_PIVOT_ANGLE = 53.0;
+    private static double LVL_1_BALL_PIVOT_ANGLE = 2.0;
 
 
 
@@ -192,10 +192,7 @@ public class CatzPreSets
         Robot.arm.setPivotTargetAngle(LVL_3_HATCH_PIVOT_ANGLE);
 
         Robot.arm.setArmTargetHit(false);
-        Robot.arm.setArmTargetExt(LVL_3_HATCH_ARM_EXT);
-
-        Robot.intake.setWristTargetAngle(LVL_3_HATCH_WRIST_ANGLE);
-        Robot.lift.setLiftTargetHeight(LVL_3_HATCH_LIFT_HEIGHT);
+      
     }
 
     public static void lvl2RocketHatch()
@@ -203,10 +200,7 @@ public class CatzPreSets
         Robot.arm.setPivotTargetAngle(LVL_2_HATCH_PIVOT_ANGLE);
 
         Robot.arm.setArmTargetHit(false);
-        Robot.arm.setArmTargetExt(LVL_2_HATCH_ARM_EXT);
-
-        Robot.intake.setWristTargetAngle(LVL_2_HATCH_WRIST_ANGLE);
-        Robot.lift.setLiftTargetHeight(LVL_2_HATCH_LIFT_HEIGHT);
+       
     }
 
     public static void lvl1RocketHatch()
@@ -215,36 +209,13 @@ public class CatzPreSets
         hatchPickUp();
     }
 
-    //TODO
-    public static void stowed()
-    {
-        Robot.intake.setWristTargetAngle(STOWED_WRIST_ANGLE);
+    
 
-        Timer.delay(0.100);
-
-        Robot.arm.setPivotTargetAngle(STOWED_PIVOT_ANGLE);
+    
+        
     }
 
-    public static void prestowed()
-    {
-        Robot.arm.setPivotTargetAngle(PRESTOWED_PIVOT_ANGLE);
-
-        Timer.delay(0.1);
-
-        Robot.arm.setArmTargetHit(false);
-        Robot.arm.setArmTargetExt(PRESTOWED_ARM_EXT);
-        Timer.delay(0.1);
-
-        Robot.intake.setWristTargetAngle(PRESTOWED_WRIST_ANGLE);
-        Robot.lift.setLiftTargetHeight(PRESTOWED_LIFT_HEIGHT);
-    }
-
-    public static void prestowed2()
-    {
-        Robot.arm.setPivotTargetAngle(PRESTOWED2_PIVOT_ANGLE);
-        Timer.delay(0.1);
-        Robot.intake.setWristTargetAngle(PRESTOWED2_WRIST_ANGLE);
-    }
+    
  
     //also for scoring in rocket lvl 1
     public static void transport()
