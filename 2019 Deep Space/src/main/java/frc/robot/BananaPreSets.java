@@ -24,7 +24,9 @@ public class CatzPreSets
     
  
 
-    private static double HATCH_PICKUP_PIVOT_ANGLE = 0.0;
+    //private static double HATCH_PICKUP_PIVOT_ANGLE = 0.0;
+    private static double PICKUP_PIVOT_ANGLE = 5.0;//slightly higher than the neutral angle to make sure the object is right 
+                                                    //side up when raised to the correct elevation
     
 
 
@@ -35,14 +37,13 @@ public class CatzPreSets
      *  Traveled Preset
      * 
      */
-    private static double TRAVEL_PIVOT_ANGLE = 80.0;
+   
     
 
     //Values for scoring in the cargo bay
-    private static double CARGO_BAY_BALL_PIVOT_ANGLE = 110.0; 
+    private static double CARGO_BAY_BALL_PIVOT_ANGLE = 110.0; //the surface of the shelf is 95cm above the carpet
    
 
-    private static double CARGO_BAY_HATCH_PIVOT_ANGLE = 21.0; //the surface of the shelf is 95cm above the carpet
    
 
     
@@ -51,13 +52,13 @@ public class CatzPreSets
      *  Values for scoring cargo in rocket
      * 
      */
-    private static double LVL_3_BALL_PIVOT_ANGLE = 90;
+    private static double LVL_3_BALL_PIVOT_ANGLE = 90.0;
     
 
-    private static double LVL_2_BALL_PIVOT_ANGLE = 101.4;
+    private static double LVL_2_BALL_PIVOT_ANGLE = 80.0;
    
 
-    private static double LVL_1_BALL_PIVOT_ANGLE = 2.0;
+    private static double LVL_1_BALL_PIVOT_ANGLE = 10.0; //doubles as the travel angle
 
 
 
