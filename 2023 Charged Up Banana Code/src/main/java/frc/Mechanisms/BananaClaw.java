@@ -13,7 +13,7 @@
 
 package frc.Mechanisms;
 
-    public class BananaLift{
+    public class BananaClaw{
         
     
 }
