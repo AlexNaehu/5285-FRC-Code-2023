@@ -77,18 +77,18 @@ public class BananaDriveTrain
     private final int DRVTRAIN_VELOCITY_PID_IDX = 0;
     private final int PID_TIMEOUT_MS            = 10;
 
-    public final double RT_PID_P = 0.05;  
+    public final double RT_PID_P = 0.04;  
     public final double RT_PID_I = 0.0; 
     public final double RT_PID_D = 0.0;    
-    public final double RT_PID_F = 1023.0/20666.0; 
+    public final double RT_PID_F = 1080.0/20480.0; 
 
-    public final double LT_PID_P = 0.1;  //TBD-MH: verify lt and rt values
+    public final double LT_PID_P = 0.04;  //TBD-MH: verify lt and rt values
     public final double LT_PID_I = 0.0; 
     public final double LT_PID_D = 0.0;    
-    public final double LT_PID_F = 1023.0/20666.0;  //TBD-MH:  ADD COMMENTS & DEFINE CONSTANTS
+    public final double LT_PID_F = 1080.0/20480.0;  //TBD-MH:  ADD COMMENTS & DEFINE CONSTANTS
 
-    private      double drvStraightTargetVelocityOffsetFwd = 70.0;
-    private      double drvStraightTargetVelocityOffsetBwd = 60.0;
+    private      double drvStraightTargetVelocityOffsetFwd = 50.0;
+    private      double drvStraightTargetVelocityOffsetBwd = 50.0;
 
  
  
