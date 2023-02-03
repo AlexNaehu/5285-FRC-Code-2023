@@ -46,6 +46,11 @@ public class BananaDriveTrain
     private CANSparkMax Rdrive2 = new CANSparkMax(28, MotorType.kBrushless);
     private CANSparkMax Ldrive1 = new CANSparkMax(26, MotorType.kBrushless); 
     private CANSparkMax Ldrive2 = new CANSparkMax(25, MotorType.kBrushless);
+ 
+    private int Rdrive1ID = 27;
+    private int Rdrive2ID = 28;
+    private int Ldrive1ID = 26;
+    private int Ldrive2ID = 25;
     
     private MotorControllerGroup RIGHT = new MotorControllerGroup(Rdrive1, Rdrive2);
     private MotorControllerGroup LEFT = new MotorControllerGroup(Ldrive1, Ldrive2);
@@ -167,6 +172,36 @@ public class BananaDriveTrain
         RDrive1.setNeutralMode(NeutralMode.Coast);
         RDrive2.setNeutralMode(NeutralMode.Coast);
      
-     
+     public double getMotorTemperature(int id)
+    {
+        double temp = -999.0;
+        switch (id)
+        {
+            case Rdrive1ID:
+                temp = Rdrive1.getTemperature();
+            break;
+
+            case Rdrive2ID:
+                temp = Rdrive2.getTemperature();
+            break;
+
+            case Ldrive1ID:
+                temp = Ldrive1.getTemperature();
+            break;
+                
+            case Ldrive2ID:
+                temp = Ldrive2.getTemperature();
+            break;
+
+            default :
+                temp = -999.0;          
+        }
+        return temp; 
     }
+     
+     
+     
+     
+     
+     
 }
