@@ -44,11 +44,11 @@ public class Robot extends TimedRobot
   public static BananaIntake      intake;
   public static BananaLift        lift;
 
-  private static XboxController xboxDrv;
-  private static XboxController xboxAux;
-
-  private static final int XBOX_DRV_PORT = 0;
-  private static final int XBOX_AUX_PORT = 1;
+  
+  private XboxController controller = new XboxController(0);  
+  
+  
+  
 
   @Override
   public void robotInit() 
@@ -70,8 +70,8 @@ public class Robot extends TimedRobot
     intake     = new BananaIntake();
     lift       = new BananaLift();
   
-    xboxDrv    = new XboxController(XBOX_DRV_PORT);
-    xboxAux    = new XboxController(XBOX_AUX_PORT);
+    
+    
 
     
     
