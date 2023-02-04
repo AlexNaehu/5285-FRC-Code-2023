@@ -128,9 +128,10 @@ public class BananaDriveTrain
     {
 
         //Configure PID Gain Constants
-        if (side == DRVTRAIN_LT) 
+        if (side == LEFT) 
         {
              //Configure feedback device for PID loop
+             //Change Talon to SparkMax
             Ldrive1.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, DRVTRAIN_VELOCITY_PID_IDX,
                                                                                                 PID_TIMEOUT_MS);
             Ldrive1.config_kP(DRVTRAIN_VELOCITY_PID_IDX, kP);
