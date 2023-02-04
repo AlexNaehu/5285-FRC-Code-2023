@@ -10,10 +10,12 @@
  */
 package frc.Mechanisms;
 
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.CANPIDController;
-import com.revrobotics.ControlType;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax.ControlType;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
@@ -64,12 +66,10 @@ public class BananaDriveTrain
     *  Encoder Definitions
     *---------------------------------------------------------------------------------------------*/
  
-    private final double TALONFX_INTEGRATED_ENC_CNTS_PER_REV      = 2048.0;
+    private final double SPARKMAX_INTEGRATED_ENC_CNTS_PER_REV      = 2048.0;
     private final double DRVTRAIN_WHEEL_RADIUS                    = 2;
     private final double DRVTRAIN_WHEEL_CIRCUMFERENCE             = (2.0 * Math.PI * DRVTRAIN_WHEEL_RADIUS);
 
-    public final double DRVTRAIN_ENC_COUNTS_TO_INCHES_LO = (1/LOW_GEAR_RATIO ) * DRVTRAIN_WHEEL_CIRCUMFERENCE * (1/TALONFX_INTEGRATED_ENC_CNTS_PER_REV) ;
-    public final double DRVTRAIN_ENC_COUNTS_TO_INCHES_HI = (1/HIGH_GEAR_RATIO) * DRVTRAIN_WHEEL_CIRCUMFERENCE * (1/TALONFX_INTEGRATED_ENC_CNTS_PER_REV) ; 
    
     public  double         currentEncCountsToInches = 0.0;
  
@@ -102,8 +102,8 @@ public class BananaDriveTrain
      
        Rdrive1.restoreFactoryDefaults();
        Rdrive2.restoreFactoryDefaults();
-       RLdrive1.restoreFactoryDefaults();
-       RLdrive2.restoreFactoryDefaults();
+       Ldrive1.restoreFactoryDefaults();
+       Ldrive2.restoreFactoryDefaults();
       
        //BACK MOTORS FOLLOW FRONT MOTORS
        Rdrive2.follow(Rdrive1);
@@ -122,31 +122,31 @@ public class BananaDriveTrain
     *  Closed Loop Control Methods
     *
     *---------------------------------------------------------------------------------------------*/
+    }
      
-     
-       public void setDriveTrainPIDConfiguration(int side, double kP, double kI, double kD, double kF) 
+       public void setDriveTrainPIDConfiguration(MotorControllerGroup side, double kP, double kI, double kD, double kF) 
     {
 
         //Configure PID Gain Constants
         if (side == DRVTRAIN_LT) 
         {
              //Configure feedback device for PID loop
-            drvTrainMtrCtrlLTFrnt.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, DRVTRAIN_VELOCITY_PID_IDX,
+            Ldrive1.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, DRVTRAIN_VELOCITY_PID_IDX,
                                                                                                 PID_TIMEOUT_MS);
-            drvTrainMtrCtrlLTFrnt.config_kP(DRVTRAIN_VELOCITY_PID_IDX, kP);
-            drvTrainMtrCtrlLTFrnt.config_kI(DRVTRAIN_VELOCITY_PID_IDX, kI);
-            drvTrainMtrCtrlLTFrnt.config_kD(DRVTRAIN_VELOCITY_PID_IDX, kD);
-            drvTrainMtrCtrlLTFrnt.config_kF(DRVTRAIN_VELOCITY_PID_IDX, kF);
+            Ldrive1.config_kP(DRVTRAIN_VELOCITY_PID_IDX, kP);
+            Ldrive1.config_kI(DRVTRAIN_VELOCITY_PID_IDX, kI);
+            Ldrive1.config_kD(DRVTRAIN_VELOCITY_PID_IDX, kD);
+            Ldrive1.config_kF(DRVTRAIN_VELOCITY_PID_IDX, kF);
 
         } 
         else 
         {
-            drvTrainMtrCtrlRTFrnt.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, DRVTRAIN_VELOCITY_PID_IDX, 
+            Rdrive1.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, DRVTRAIN_VELOCITY_PID_IDX, 
                                                                                                 PID_TIMEOUT_MS);
-            drvTrainMtrCtrlRTFrnt.config_kP(DRVTRAIN_VELOCITY_PID_IDX, kP);
-            drvTrainMtrCtrlRTFrnt.config_kI(DRVTRAIN_VELOCITY_PID_IDX, kI);
-            drvTrainMtrCtrlRTFrnt.config_kD(DRVTRAIN_VELOCITY_PID_IDX, kD);
-            drvTrainMtrCtrlRTFrnt.config_kF(DRVTRAIN_VELOCITY_PID_IDX, kF);
+            Rdrive1.config_kP(DRVTRAIN_VELOCITY_PID_IDX, kP);
+            Rdrive1.config_kI(DRVTRAIN_VELOCITY_PID_IDX, kI);
+            Rdrive1.config_kD(DRVTRAIN_VELOCITY_PID_IDX, kD);
+            Rdrive1.config_kF(DRVTRAIN_VELOCITY_PID_IDX, kF);
         }
          
     }   //End of setDriveTrainPIDConfiguration()
@@ -159,19 +159,19 @@ public class BananaDriveTrain
     *---------------------------------------------------------------------------------------------*/
     public void setToBrakeMode()
     {
-        LDrive1.setNeutralMode(NeutralMode.Brake); 
-        LDrive2.setNeutralMode(NeutralMode.Brake);
-        RDrive1.setNeutralMode(NeutralMode.Brake);
-        RDRive2.setNeutralMode(NeutralMode.Brake);
+        Ldrive1.setNeutralMode(NeutralMode.Brake); 
+        Ldrive2.setNeutralMode(NeutralMode.Brake);
+        Rdrive1.setNeutralMode(NeutralMode.Brake);
+        Rdrive2.setNeutralMode(NeutralMode.Brake);
     }
 
     public void setToCoastMode() 
     {
-        LDrive1.setNeutralMode(NeutralMode.Coast); 
-        LDrive2.setNeutralMode(NeutralMode.Coast);
-        RDrive1.setNeutralMode(NeutralMode.Coast);
-        RDrive2.setNeutralMode(NeutralMode.Coast);
-     
+        Ldrive1.setNeutralMode(NeutralMode.Coast); 
+        Ldrive2.setNeutralMode(NeutralMode.Coast);
+        Rdrive1.setNeutralMode(NeutralMode.Coast);
+        Rdrive2.setNeutralMode(NeutralMode.Coast);
+    }
      public double getMotorTemperature(int id)
     {
         double temp = -999.0;
