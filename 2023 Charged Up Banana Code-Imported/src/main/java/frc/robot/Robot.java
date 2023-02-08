@@ -29,9 +29,11 @@ import frc.Autonomous.BananaTurn;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.Mechanisms.BananaArm;
+import frc.Mechanisms.BananaBrake;
+import frc.Mechanisms.BananaClaw;
 import frc.Mechanisms.BananaDriveTrain;
-import frc.Mechanisms.BananaIntake;
-import frc.Mechanisms.BananaLift;
+import frc.Mechanisms.BananaBrake;
+import frc.Mechanisms.BananaClaw;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -44,8 +46,8 @@ public class Robot extends TimedRobot
 {
   public static BananaArm         arm;
   public static BananaDriveTrain  driveTrain;
-  public static BananaIntake      intake;
-  public static BananaLift        lift;
+  public static BananaBrake      brake;
+  public static BananaClaw        claw;
 
   private static XboxController xboxDrv;
   private static XboxController xboxAux ;
@@ -71,8 +73,8 @@ public class Robot extends TimedRobot
     *-------------------------------------------------------------------------*/
     arm        = new BananaArm();
     driveTrain = new BananaDriveTrain();
-    intake     = new BananaIntake();
-    lift       = new BananaLift();
+    claw = new BananaClaw();
+    brake       = new BananaBrake();
   
     xboxDrv    = new XboxController(XBOX_DRV_PORT);
     xboxAux    = new XboxController(XBOX_AUX_PORT);

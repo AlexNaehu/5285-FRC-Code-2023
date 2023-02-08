@@ -1,5 +1,4 @@
 
-
 /**
  * Author : Alex Naehu
  *  Methods : getCargo, relaseCargo, rotateWrist, stopWrist, closeCargoClamp, openCargoClamp
@@ -12,8 +11,9 @@
 package frc.Mechanisms;
 
 
-public class BananaIntake
+public class BananaBrake
 {
 
    
 }
+

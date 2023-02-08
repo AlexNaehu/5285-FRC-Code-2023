@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD:2023 Charged Up Banana Code-Imported/.wpilib/wpilib_preferences.json
     "enableCppIntellisense": false,
     "currentLanguage": "java",
 <<<<<<<< HEAD:2023 Charged Up Banana Code-Imported/.wpilib/wpilib_preferences.json
@@ -7,10 +6,5 @@
 ========
     "projectYear": "2022",
 >>>>>>>> 51d9d9948ca9e2a297c2a62f164198d62c417923:2023 Charged Up Banana Code-Imported/wpilib_preferences.json
-=======
-    "currentLanguage": "none",
-    "enableCppIntellisense": false,
-    "projectYear": "none",
->>>>>>> 51d9d9948ca9e2a297c2a62f164198d62c417923:2023 Charged Up Banana Code/.wpilib/wpilib_preferences.json
     "teamNumber": 5285
 }
